@@ -15,13 +15,13 @@ function Learn() {
     e.preventDefault();
 
     const formData = {
-      name: e.target.name.value,
+      fullName: e.target.name.value,
       priorExperience,
-      guruName,
+      previousGuruName: guruName,
       yearsLearnt,
       email: e.target.email.value,
-      phone: e.target.phone.value,
-      level: e.target.level.value,
+      phoneNumber: e.target.phone.value,
+      learningLevel: e.target.level.value,
       message: e.target.message.value,
     };
 
