@@ -26,30 +26,33 @@ function Learn() {
     };
 
     try {
-      const response = await fetch(
-        "https://backend-mridvatsa.vercel.app/api/register", // ✅ Fixed: added /api/register
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        },
-      );
+  const response = await fetch(
+    "https://backend-mridvatsa.vercel.app/api/register",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    },
+  );
 
-      if (response.ok) {
-        alert("Registration submitted successfully!");
-        toggleModal();
-      } else {
-        const errorMsg = result.errors
-          ? result.errors.join(", ")
-          : result.message;
-        console.log("Full backend response:", result); // 👈 add this
-        alert("Error: " + errorMsg);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Failed to connect to server.");
-    }
-  };
+  console.log("Status:", response.status);
+  const text = await response.text(); // 👈 read as text first
+  console.log("Raw response:", text);  // 👈 this will show exact error
+
+  if (response.ok) {
+    alert("Registration submitted successfully!");
+    setPriorExperience("");
+    setGuruName("");
+    setYearsLearnt("");
+    toggleModal();
+  } else {
+    alert("Error: " + text);
+  }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    alert("Failed to connect to server.");
+  }
+}
 
   return (
     <main className="learn-page-main">
