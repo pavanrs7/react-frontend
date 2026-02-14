@@ -25,13 +25,16 @@ function Contact() {
     setSubmitMessage("");
 
     try {
-      const response = await fetch("https://backend-mridvatsa.vercel.app/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://backend-mridvatsa.vercel.app/api/contacts", // ✅ Fixed: added /api/contacts
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       const result = await response.json();
 
@@ -62,12 +65,10 @@ function Contact() {
 
   return (
     <div className="contact-page-main">
-      {/* Page Title */}
       <div className="page-title">
         <h2>Contact</h2>
       </div>
 
-      {/* Contact Information Section - footer-style icons, no grey box */}
       <section className="contact-info-section">
         <div className="contact-info-grid">
           <div className="contact-info-card">
@@ -120,7 +121,6 @@ function Contact() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
       <section className="contact-form-section">
         <div className="form-header">
           <h2>Send a Message</h2>
@@ -199,7 +199,6 @@ function Contact() {
         )}
       </section>
 
-      {/* Call to Action Section */}
       <section className="contact-cta-section">
         <div className="cta-content">
           <h2>Ready to Start Learning?</h2>

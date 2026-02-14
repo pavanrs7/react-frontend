@@ -27,7 +27,7 @@ function Learn() {
 
     try {
       const response = await fetch(
-        "https://backend-mridvatsa.vercel.app/", // ✅ Replace with your actual backend Vercel URL
+        "https://backend-mridvatsa.vercel.app/api/register", // ✅ Fixed: added /api/register
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -136,7 +136,6 @@ function Learn() {
         </div>
       </div>
 
-      {/* Modal Popup */}
       {showForm && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -146,9 +145,7 @@ function Learn() {
 
             <h3>Student Registration</h3>
 
-            {/* ✅ onSubmit added here */}
             <form className="registration-form" onSubmit={handleSubmit}>
-              {/* ✅ name="name" added */}
               <input type="text" name="name" placeholder="Full Name" required />
 
               <div className="radio-group">
@@ -175,7 +172,6 @@ function Learn() {
                 </div>
               </div>
 
-              {/* Conditional Fields */}
               {priorExperience === "Yes" && (
                 <div className="conditional-fields">
                   <input
@@ -195,15 +191,12 @@ function Learn() {
                 </div>
               )}
 
-              {/* ✅ name="email" added */}
               <input
                 type="email"
                 name="email"
                 placeholder="Email Address"
                 required
               />
-
-              {/* ✅ type="tel" and name="phone" added */}
               <input
                 type="tel"
                 name="phone"
@@ -212,16 +205,12 @@ function Learn() {
                 maxLength={10}
                 required
               />
-
-              {/* ✅ name="level" added */}
               <select name="level">
                 <option>Select Level</option>
                 <option>Beginner</option>
                 <option>Intermediate</option>
                 <option>Advanced</option>
               </select>
-
-              {/* ✅ name="message" added */}
               <textarea
                 name="message"
                 placeholder="Any message (optional)"
