@@ -1,0 +1,73 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    max-width: 100%; /* to prevent overflow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a0a0a;
+    padding: 12px 20px;
+    z-index: 1000; /* ensures navbar is on top */
+    
+}
+
+.nav-right{ /* just to make the items align to the right */
+    display:flex;
+    flex:1;
+    gap:20px;
+    font-size: 20px;
+    font-weight: bold;
+   
+}
+
+.nav-right a{
+    color:whitesmoke;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Create the underline using a pseudo-element */
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #ffcc99; /* Your accent color */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* Hover State */
+.nav-right a:hover {
+    color: #ffcc99;
+}
+.nav-right a:hover::after {
+    width: 100%; /* Line grows to full width */
+}
+.nav-center{
+    justify-content: center;
+    display:flex;
+    flex:1;
+    align-items: center;
+}
+.nav-left{
+    display:flex;
+    flex:1;
+    align-items: center;
+    font-size: 18px;
+}
+.nav-left a{
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+}
+.logo{
+    border-radius:50%;
+    height:70px;
+    width:auto;
+}

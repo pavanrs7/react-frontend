@@ -1,0 +1,269 @@
+/* ============================================================
+   GLOBAL THEME: DARK & ELEGANT
+   ============================================================ */
+body {
+    background-color: #0a0a0a; /* Deep charcoal/black */
+    color: #e0e0e0;           /* Soft white text */
+    font-family: 'Playfair Display', serif; /* Suggest adding this to your HTML */
+    line-height: 1.8;
+}
+
+/* ============================================================
+   HERO SECTION: THE "STAGE" LOOK
+   ============================================================ */
+.hero-section {
+    padding: 60px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #111 0%, #0a0a0a 100%);
+}
+
+.hero-img-cover {
+    width: 85%;
+    max-width: 900px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 2px; /* Sharp, modern edges */
+    filter: grayscale(20%) brightness(1.2); /* Artistic moody look */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    
+    /* Animation */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.hero-content {
+    background: transparent; /* Remove the white box */
+    margin-top: 20px;
+    text-align: center;
+    max-width: 800px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #c5a47e; /* Gold/Tan accent like Patri's site */
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+
+/* ============================================================
+   QUOTE SECTION: MINIMAL & ARTISTIC
+   ============================================================ */
+.quote-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.quote-section .quote {
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    color: #f0f0f0;
+    font-style: italic;
+}
+
+.quote-section .viveka {
+    display: block;
+    margin-top: 20px;
+    color: #c5a47e; /* Gold accent */
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   YOUTUBE SECTION: FLOATING TILES
+   ============================================================ */
+.YTvideos {
+    padding: 60px 0;
+}
+
+.videos-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.ytshorts iframe {
+    border: 1px solid #333;
+    border-radius: 0; /* Square edges for professional look */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease;
+}
+
+.ytshorts:hover iframe {
+    transform: scale(1.02);
+    border-color: #c5a47e;
+}
+
+ .Watch {
+    display: table;           /* Ensures it only takes up as much width as the text */
+    margin: 40px auto 0 auto; /* Centers it horizontally and keeps the 40px top gap */
+    background: transparent;
+    color: #c5a47e;
+    border: 1px solid #c5a47e;
+    padding: 12px 35px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    text-decoration: none;    /* Removes underline */
+    cursor: pointer;
+}
+
+.Watch:hover {
+    background: #c5a47e;
+    color: #0a0a0a;
+}
+
+/* ============================================================
+   INSTRUMENT SECTION: CLEAN FOCUS
+   ============================================================ */
+.instrument {
+    background: transparent;
+    padding: 40px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mrid {
+    color: #ccc;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 30px;
+}
+
+.know-more {
+    font-family: sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #c5a47e;
+    padding-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.know-more:hover {
+    color: #c5a47e;
+}
+
+/* --- The Parent Container (Centering Logic) --- */
+.LearnSection-Container {
+    width: 100%;
+    min-height: 500px; /* Adjust based on your image height */
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;     /* Vertical centering */
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+}
+
+/* --- The Content Box with Golden Border --- */
+.LearnSection-Content {
+    position: relative;
+    z-index: 3; 
+    text-align: center;
+    max-width: 600px; 
+    padding: 50px 40px;
+    
+    /* The Golden Border & Glass Effect */
+    border: 2px solid #c5a47e; /* Gold/Tan Border */
+    background: rgba(10, 10, 10, 0.75); /* Dark semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: Modern blur effect */
+    border-radius: 4px; /* Sharp but slightly softened corners */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Title & Description --- */
+.LearnSection__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.LearnSection__description {
+    font-size: 1.1rem;
+    color: #c5a47e; /* Using gold for the sub-text */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- The "Start Learning" Button --- */
+.LearnSection__button {
+    display: inline-block;
+    padding: 14px 40px;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid #ffffff; /* White border to start */
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+/* --- Button Hover Effect --- */
+.LearnSection__button:hover {
+    background-color: #c5a47e; /* Shifts to Gold on hover */
+    color: #0a0a0a;            /* Text turns dark for contrast */
+    border-color: #c5a47e;
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 10px 20px rgba(197, 164, 126, 0.3);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .LearnSection-Content {
+        padding: 40px 20px;
+        width: 95%;
+    }
+    .LearnSection__title {
+        font-size: 1.8rem;
+    }
+}
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .hero-img-cover { width: 95%; height: 300px; }
+    .videos-row { flex-direction: column; align-items: center; }
+}

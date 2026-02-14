@@ -1,0 +1,272 @@
+.about-page-main {
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-section {
+  padding: 60px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.section-title {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left; /* Aligns the section titles */
+}
+
+.page-main-title {
+  font-size: 3.5em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-bio-container {
+  display: flex; /* Enables the two-column layout */
+  align-items: flex-start; /* Aligns text and image to the top */
+  gap: 40px;
+  padding-top: 20px;
+}
+
+.profile-image-container {
+  flex-shrink: 0; /* Prevents the image column from shrinking */
+  width: 250px; /* Gives a fixed width to the image column */
+  display: flex;
+  justify-content: center;
+}
+
+.circular-profile-image {
+  /* Define size and circular shape */
+  width: 250px; /* Slightly larger image for the main focus */
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ffcc99;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.full-bio-text-box {
+  flex-grow: 1; /* Allows the text column to take up remaining space */
+}
+
+.bio-heading {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.bio-text-content {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #444;
+}
+
+.justified-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ====================================
+   ACHIEVEMENTS / SLIDESHOW FLEX CONTAINER 
+   Same shade as Learn quote (floral white) + curved edges
+==================================== */
+.about-achievements-section {
+  background-color: #fffaf0;
+  border-radius: 20px;
+  margin: 40px 16px 60px;
+  overflow: hidden;
+  border: 2px solid #ffcc99;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.center-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.achievements-slideshow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.achievements-column {
+  flex: 3;
+  min-width: 300px;
+  margin-left: 10px;
+}
+
+.slideshow-column {
+  flex: 2;
+  min-width: 250px;
+}
+
+.column-subheading {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffcc99;
+  padding-bottom: 5px;
+}
+
+.achievements-list ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+
+.achievements-list li {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #4a4a4a;
+}
+
+/* ====================================
+   SLIDESHOW STYLING
+==================================== */
+.slideshow-container {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: 500px; /* *** IMPORTANT: Fixed height for visual consistency *** */
+}
+
+/* --- Slide Stacking and Fading --- */
+.media-slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  height: 100%;
+}
+
+.media-slide.active {
+  opacity: 1;
+  position: relative; /* Allows content within to be positioned */
+}
+
+.slideshow-image {
+  background-color: #000; /* Fallback background */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.media-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* --- Navigation Buttons and Dots --- */
+.prev-button,
+.next-button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 12px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  z-index: 10;
+}
+
+.next-button {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev-button {
+  border-radius: 0 3px 3px 0;
+}
+
+.slideshow-dots {
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 15;
+}
+
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active-dot,
+.dot:hover {
+  background-color: #ffcc99;
+}
+
+/* ====================================
+   RESPONSIVENESS (Mobile)
+==================================== */
+@media (max-width: 768px) {
+  /* Stack the image and bio text vertically on mobile */
+  .profile-bio-container {
+    flex-direction: column;
+  }
+
+  /* Center the image and place it at the top */
+  .profile-image-container {
+    width: 100%;
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .circular-profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .bio-heading {
+    text-align: center; /* Center the bio title above the text on mobile */
+  }
+}
+
+/*slideshow*/
+@media (max-width: 768px) {
+  /* Stack Achievements and Slideshow vertically */
+  .achievements-slideshow-container {
+    flex-direction: column;
+  }
+
+  .achievements-column,
+  .slideshow-column {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  /* Move Slideshow above Achievements list on mobile */
+  .slideshow-column {
+    order: -1;
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,56 @@
+.footer {
+    background-color: #0a0a0a; 
+    padding: 50px 20px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Wide spacing for a high-end feel */
+    margin-bottom: 30px;
+}
+
+.footer-socials a {
+    color: #c5a47e; /* The Patri-style Gold */
+    font-size: 1.5rem; /* Size of the icons */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* Hover Effect: The icon grows slightly and glows gold */
+.footer-socials a:hover {
+    color: #ffffff;
+    transform: scale(1.2) translateY(-5px);
+    text-shadow: 0 0 15px rgba(197, 164, 126, 0.8);
+}
+
+.footer-divider {
+    width: 30px;
+    height: 1px;
+    background-color: #333;
+    margin: 0 auto 25px auto;
+    
+}
+
+.footer-copy {
+    color: #555;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: sans-serif;
+  
+}
+
+/* Mobile: Space them out slightly more for easy tapping */
+@media (max-width: 600px) {
+    .footer-socials {
+        gap: 40px;
+    }
+}
