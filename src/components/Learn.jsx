@@ -4,12 +4,49 @@ import pic from "../assets/mypic2.JPG.jpeg";
 import heroImage from "../assets/WhatsApp Image 2026-02-14 at 10.41.25 PM.jpeg";
 
 function Learn() {
-  // to track if popup is open or not
   const [showForm, setShowForm] = useState(false);
-  const [priorExperience, setPriorExperience] = useState(""); // Stores "Yes" or "No"
+  const [priorExperience, setPriorExperience] = useState("");
   const [guruName, setGuruName] = useState("");
   const [yearsLearnt, setYearsLearnt] = useState("");
+
   const toggleModal = () => setShowForm(!showForm);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.name.value,
+      priorExperience,
+      guruName,
+      yearsLearnt,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      level: e.target.level.value,
+      message: e.target.message.value,
+    };
+
+    try {
+      const response = await fetch(
+        "https://backend-mridvatsa.vercel.app/", // ✅ Replace with your actual backend Vercel URL
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
+
+      if (response.ok) {
+        alert("Registration submitted successfully!");
+        toggleModal();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to connect to server.");
+    }
+  };
+
   return (
     <main className="learn-page-main">
       <section
@@ -23,6 +60,7 @@ function Learn() {
           </div>
         </div>
       </section>
+
       <section className="learn-content why-mrid">
         <h2 className="section-head">Why Learn Mridanga?</h2>
         <div className="placeholder-box">
@@ -40,7 +78,7 @@ function Learn() {
               literature.
             </li>
             <li>
-              <strong>Gateway</strong> It allows one to play other percussion
+              <strong>Gateway:</strong> It allows one to play other percussion
               instruments like Khanjira, Ghatam, and Tabla.
             </li>
             <li>
@@ -50,16 +88,14 @@ function Learn() {
           </ul>
         </div>
       </section>
+
       <section className="learn-content why-here">
         <h2 className="section-head">Why learn here?</h2>
         <div className="placeholder-box">
           <div className="teacher-info-flex">
-            {/* 1. The Rounded Image */}
             <div className="teacher-image-container">
               <img src={pic} alt="Srivatsa" className="rounded-teacher-img" />
             </div>
-
-            {/* 2. The Text Content */}
             <div className="teacher-text-content">
               <p className="why">
                 You will be learning from <strong>Srivatsa</strong>, who has
@@ -73,22 +109,22 @@ function Learn() {
                 exceptional tonal quality and graceful, smooth accompaniment.
               </p>
               <a href="/About" className="know-more-btn">
-                {" "}
                 Know more!
               </a>
             </div>
           </div>
         </div>
       </section>
+
       <div className="quote-container">
         <div className="quote-practice">
           <p className="quote-p">
-            {" "}
             One Ounce of practice is worth a thousand pounds of theory
           </p>
           <p className="quote-author"> - Swami Vivekananda</p>
         </div>
       </div>
+
       <div className="register-container">
         <div className="register-box">
           <h2 className="register-head">
@@ -99,18 +135,22 @@ function Learn() {
           </button>
         </div>
       </div>
-      {/* 4. The Popup (Modal) Overlay */}
+
+      {/* Modal Popup */}
       {showForm && (
         <div className="modal-overlay" onClick={toggleModal}>
-          {/* stopPropagation prevents the modal from closing when clicking inside the box */}
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={toggleModal}>
               &times;
             </button>
 
             <h3>Student Registration</h3>
-            <form className="registration-form">
-              <input type="text" placeholder="Full Name" required />
+
+            {/* ✅ onSubmit added here */}
+            <form className="registration-form" onSubmit={handleSubmit}>
+              {/* ✅ name="name" added */}
+              <input type="text" name="name" placeholder="Full Name" required />
+
               <div className="radio-group">
                 <label>Prior learning experience?</label>
                 <div className="radio-options">
@@ -135,7 +175,7 @@ function Learn() {
                 </div>
               </div>
 
-              {/* --- Conditional Fields --- */}
+              {/* Conditional Fields */}
               {priorExperience === "Yes" && (
                 <div className="conditional-fields">
                   <input
@@ -154,21 +194,39 @@ function Learn() {
                   />
                 </div>
               )}
-              <input type="email" placeholder="Email Address" required />
+
+              {/* ✅ name="email" added */}
               <input
-                type="phone"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
+
+              {/* ✅ type="tel" and name="phone" added */}
+              <input
+                type="tel"
+                name="phone"
                 placeholder="Phone Number"
                 minLength={10}
                 maxLength={10}
                 required
               />
-              <select>
+
+              {/* ✅ name="level" added */}
+              <select name="level">
                 <option>Select Level</option>
                 <option>Beginner</option>
                 <option>Intermediate</option>
                 <option>Advanced</option>
               </select>
-              <textarea placeholder=""></textarea>
+
+              {/* ✅ name="message" added */}
+              <textarea
+                name="message"
+                placeholder="Any message (optional)"
+              ></textarea>
+
               <button type="submit" className="submit-btn">
                 Submit Request
               </button>
@@ -179,4 +237,5 @@ function Learn() {
     </main>
   );
 }
+
 export default Learn;
