@@ -39,7 +39,11 @@ function Learn() {
         alert("Registration submitted successfully!");
         toggleModal();
       } else {
-        alert("Something went wrong. Please try again.");
+        const errorMsg = result.errors
+          ? result.errors.join(", ")
+          : result.message;
+        console.log("Full backend response:", result); // 👈 add this
+        alert("Error: " + errorMsg);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
