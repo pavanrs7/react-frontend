@@ -207,7 +207,7 @@ function Contact() {
             classical music.
           </p>
           <div className="cta-buttons">
-            <a href="/Learn" className="cta-btn primary">
+            <a href="/learn" className="cta-btn primary">
               Start Learning
             </a>
             <a

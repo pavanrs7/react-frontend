@@ -79,7 +79,7 @@ function Home() {
                     <p className="LearnSection__description">
                         Lets explore the world of Rhythm!
                     </p>
-                    <a href="/Learn" className="LearnSection__button">Start Learning Now</a>
+                    <a href="/learn" className="LearnSection__button">Start Learning Now</a>
                 </div>
             </section>
         </div>
